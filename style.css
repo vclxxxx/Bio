@@ -1,10 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #120136, #52057b, #892cdc, #bc6ff1);
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  animation: mafiaBG 18s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ body {
   color: #fff;
 }
 
-@keyframes gradientBG {
+@keyframes mafiaBG {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
@@ -20,12 +20,13 @@ body {
 
 .container {
   text-align: center;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.8);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+  box-shadow: 0 0 25px rgba(255,0,0,0.3);
   max-width: 420px;
   width: 100%;
+  border: 2px solid #ff0000;
 }
 
 /* Avatar */
@@ -36,24 +37,24 @@ body {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 4px solid #ff0000;
   object-fit: cover;
-  box-shadow: 0 0 20px rgba(255,255,255,0.6);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 25px rgba(255,0,0,0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .avatar:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255,0,0,1);
 }
 
-/* Drip text */
+/* Mafia Drip Text */
 .name {
-  font-size: 2.2em;
+  font-size: 2.5em;
   margin: 0 0 20px;
   font-weight: bold;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #00fff7, #ff00c8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #990000;
   position: relative;
   display: inline-block;
 }
@@ -64,13 +65,13 @@ body {
   left: 50%;
   width: 8px;
   height: 15px;
-  background: #ff00c8;
+  background: #ff0000;
   border-radius: 50%;
-  animation: drip 2s infinite ease-in-out;
+  animation: drip 1.8s infinite ease-in-out;
 }
 @keyframes drip {
   0% {transform: translateY(0);}
-  50% {transform: translateY(10px); opacity: 0.6;}
+  50% {transform: translateY(12px); opacity: 0.5;}
   100% {transform: translateY(0); opacity: 1;}
 }
 
@@ -82,69 +83,50 @@ body {
   margin-bottom: 25px;
 }
 .button {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8em;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #111;
+  border: 2px solid #ff0000;
 }
 .button:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px #fff, 0 0 30px #0ff;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #ff3333;
 }
-.telegram { background: #0088cc; }
-.zalo { background: #0068ff; }
-.facebook { background: #1877f2; }
-
-.zalo-icon {
-  width: 35px;
-  height: 35px;
-  filter: drop-shadow(0 0 5px white);
+.app-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px #ff0000);
 }
 
-/* Music btn */
+/* Music button */
 .music-button {
   background: none;
-  border: none;
+  border: 2px solid #ff0000;
   font-size: 1.6em;
-  color: #fff;
+  color: #ff0000;
   cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.music-button:hover { color: #ff00c8; }
+.music-button:hover {
+  color: #fff;
+  background: #ff0000;
+  box-shadow: 0 0 20px #ff0000;
+  transform: scale(1.1);
+}
 
 /* Info */
 .user-info {
-  font-size: 0.95em;
-  color: #ddd;
+  font-size: 1em;
+  color: #ccc;
+  margin-top: 10px;
   cursor: pointer;
 }
-.user-info:hover { color: #00fff7; }
-
-/* ... các css cũ giữ nguyên ... */
-
-/* Icon App (ảnh) */
-.app-icon {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px white);
-}
-
-/* Button */
-.button {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(255,255,255,0.1);
-}
-.button:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px #fff, 0 0 30px #0ff;
-}
+.user-info:hover { color: #ff0000; }

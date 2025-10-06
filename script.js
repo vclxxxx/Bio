@@ -1,19 +1,35 @@
 const music = document.getElementById('backgroundMusic');
 const toggleButton = document.getElementById('musicToggle');
 
+// Khi DOM load xong
 document.addEventListener("DOMContentLoaded", () => {
-  music.muted = false;
-  music.play().catch(() => {
-    console.log("Trình duyệt chặn autoplay, user phải bấm play");
+  // Trick để tự bật nhạc
+  music.muted = true;
+  music.play().then(() => {
+    // Sau khi play thành công, bỏ mute để có tiếng
+    setTimeout(() => {
+      music.muted = false;
+    }, 500);
+  }).catch(() => {
+    console.log("Autoplay bị chặn, cần click để bật nhạc.");
   });
 });
 
+// Toggle
 toggleButton.addEventListener('click', () => {
   if (music.paused) {
     music.play();
-    toggleButton.innerHTML = '🔊';
+    toggleButton.textContent = '🔊';
   } else {
     music.pause();
-    toggleButton.innerHTML = '🔇';
+    toggleButton.textContent = '🔇';
   }
 });
+
+// Nếu user click bất kỳ trên trang thì bật nhạc
+document.body.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    music.muted = false;
+  }
+}, { once: true });
