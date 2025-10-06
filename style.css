@@ -4,7 +4,7 @@ body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #120136, #52057b, #892cdc, #bc6ff1);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite; /* đổi chậm để đỡ lag */
+  animation: gradientBG 15s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,7 @@ body {
   width: 100%;
 }
 
-/* Avatar riêng */
+/* Avatar */
 .avatar-box {
   margin-bottom: 15px;
 }
