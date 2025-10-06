@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio - Hoàng Hữu Việt</title>
+    <title>Drip Bio - Hoàng Hữu Việt</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="drip-bg"></div>
     <div class="container">
-        <img src="https://graph.facebook.com/hoanghuuviet/picture?type=large" alt="Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar';">
-        <!-- Note: If the Facebook avatar doesn't load, replace the src with the direct image URL from the profile -->
-        <h1 class="name">Hoàng Hữu Việt</h1>
+        <!-- Avatar -->
+        <img src="https://graph.facebook.com/hoanghuuviet/picture?type=large" 
+             alt="Avatar" class="avatar" 
+             onerror="this.src='https://via.placeholder.com/150?text=Avatar';">
+        <h1 class="name drip-text">Hoàng Hữu Việt</h1>
+
+        <!-- Nút liên kết -->
         <div class="buttons">
             <a href="https://t.me/phaichiuh" target="_blank" class="button telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://zalo.me/0858344123" target="_blank" class="button zalo"><i class="fab fa-comment-dots"></i></a> <!-- Using comment icon as placeholder for Zalo -->
+            <a href="https://zalo.me/0858344123" target="_blank" class="button zalo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" class="zalo-icon">
+            </a>
             <a href="https://www.facebook.com/share/14KkPvLD94a/" target="_blank" class="button facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
+
+        <!-- Nút nhạc -->
         <button id="musicToggle" class="music-button"><i class="fas fa-volume-up"></i></button>
+
+        <!-- Info -->
         <div id="userInfo" class="user-info"></div>
     </div>
+
+    <!-- Nhạc nền -->
     <audio id="backgroundMusic" autoplay loop>
         <source src="sound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
     <script src="script.js"></script>
 </body>
 </html>
