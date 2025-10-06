@@ -1,16 +1,19 @@
 const music = document.getElementById('backgroundMusic');
 const toggleButton = document.getElementById('musicToggle');
 const clickEffect = document.querySelector('.click-effect');
-
 let toggleWord = true; // xen kẽ Việt và 💓
 
-// Auto-play nhạc
+// Auto-play nhạc (muted trước, bật lại sau click đầu tiên)
 document.addEventListener("DOMContentLoaded", () => {
-  music.muted = true;
-  music.play().then(() => {
-    setTimeout(() => { music.muted = false; }, 500);
-  }).catch(() => {});
+  music.play().catch(() => {});
 });
+
+// Bỏ muted khi user click lần đầu
+document.body.addEventListener("click", () => {
+  if (music.muted) {
+    music.muted = false;
+  }
+}, { once: true });
 
 // Nút nhạc
 toggleButton.addEventListener('click', () => {
@@ -23,7 +26,7 @@ toggleButton.addEventListener('click', () => {
   }
 });
 
-// Hiệu ứng click màn hình: hiện chữ "Việt" hoặc "💓"
+// Hiệu ứng click màn hình (Việt / 💓)
 document.addEventListener("click", (e) => {
   const x = e.clientX;
   const y = e.clientY;
@@ -34,12 +37,4 @@ document.addEventListener("click", (e) => {
   toggleWord = !toggleWord;
   clickEffect.appendChild(span);
   setTimeout(() => { span.remove(); }, 1000);
-});
-
-// Hiệu ứng click icon
-document.querySelectorAll('.button').forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.style.transform = "scale(0.85)";
-    setTimeout(() => { btn.style.transform = "scale(1)"; }, 200);
-  });
 });
