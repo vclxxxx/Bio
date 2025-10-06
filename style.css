@@ -32,7 +32,7 @@ body {
   z-index: 2;
 }
 
-/* Avatar + khói */
+/* Avatar + sương mờ */
 .avatar-box {
   margin-bottom: 15px;
   position: relative;
@@ -44,32 +44,28 @@ body {
   border: 4px solid #ff0000;
   object-fit: cover;
   box-shadow: 0 0 25px rgba(255,0,0,0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .avatar:hover {
   transform: scale(1.05);
   box-shadow: 0 0 35px rgba(255,0,0,1);
 }
-
-/* Khói */
-.smoke {
+.mist {
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 120px;
-  height: 120px;
-  background: url('https://i.ibb.co/k9pXSTr/smoke.png') no-repeat center;
-  background-size: cover;
-  opacity: 0.4;
+  width: 180px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 70%);
   transform: translateX(-50%);
-  animation: smokeMove 6s infinite ease-in-out;
+  animation: mistMove 6s infinite ease-in-out;
   z-index: 1;
 }
-@keyframes smokeMove {
+@keyframes mistMove {
   0% { transform: translate(-50%, 0) scale(1); opacity: 0.3; }
-  50% { transform: translate(-50%, -20px) scale(1.2); opacity: 0.6; }
+  50% { transform: translate(-50%, -15px) scale(1.2); opacity: 0.6; }
   100% { transform: translate(-50%, 0) scale(1); opacity: 0.3; }
 }
 
@@ -150,22 +146,24 @@ body {
 }
 .user-info:hover { color: #ff0000; }
 
-/* Hiệu ứng click màn hình */
+/* Hiệu ứng click chữ/emoji */
 .click-effect {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 1;
+  z-index: 10;
 }
 .click-effect span {
   position: absolute;
-  border: 2px solid #ff0000;
-  border-radius: 50%;
-  animation: ripple 0.6s linear forwards;
+  font-size: 1.5em;
+  font-family: 'Cinzel', serif;
+  color: #ff0000;
+  animation: floatUp 1s linear forwards;
+  text-shadow: 0 0 5px #fff, 0 0 15px #ff0000;
 }
-@keyframes ripple {
-  from { width: 0; height: 0; opacity: 1; }
-  to { width: 200px; height: 200px; opacity: 0; }
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-50px) scale(1.3); opacity: 0; }
 }
