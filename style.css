@@ -10,6 +10,7 @@ body {
   align-items: center;
   height: 100vh;
   color: #fff;
+  overflow: hidden;
 }
 
 @keyframes mafiaBG {
@@ -28,11 +29,13 @@ body {
   width: 100%;
   border: 2px solid #ff0000;
   position: relative;
+  z-index: 2;
 }
 
-/* Avatar */
+/* Avatar + khói */
 .avatar-box {
   margin-bottom: 15px;
+  position: relative;
 }
 .avatar {
   width: 160px;
@@ -42,50 +45,49 @@ body {
   object-fit: cover;
   box-shadow: 0 0 25px rgba(255,0,0,0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 .avatar:hover {
   transform: scale(1.05);
   box-shadow: 0 0 35px rgba(255,0,0,1);
 }
 
-/* Mafia text */
+/* Khói */
+.smoke {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: url('https://i.ibb.co/k9pXSTr/smoke.png') no-repeat center;
+  background-size: cover;
+  opacity: 0.4;
+  transform: translateX(-50%);
+  animation: smokeMove 6s infinite ease-in-out;
+  z-index: 1;
+}
+@keyframes smokeMove {
+  0% { transform: translate(-50%, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(-50%, -20px) scale(1.2); opacity: 0.6; }
+  100% { transform: translate(-50%, 0) scale(1); opacity: 0.3; }
+}
+
+/* Text Mafia */
 .name {
   font-size: 2.6em;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
   font-weight: 700;
   font-family: 'UnifrakturCook', cursive;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #990000;
-  position: relative;
-  display: inline-block;
 }
-
-/* Giọt máu */
-.blood-drip {
-  width: 8px;
-  height: 25px;
-  background: #ff0000;
-  border-radius: 50%;
-  margin: 0 auto;
-  animation: drip 2s infinite;
-}
-.blood-drip::after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: #ff0000;
-  border-radius: 50%;
-  margin: -5px auto 0;
-}
-.delay1 { animation-delay: 0.5s; }
-.delay2 { animation-delay: 1s; }
-
-@keyframes drip {
-  0% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(15px); opacity: 0.6; }
-  100% { transform: translateY(0); opacity: 1; }
+.dob {
+  font-size: 1.1em;
+  color: #ffaaaa;
+  margin-bottom: 20px;
+  font-family: 'Cinzel', serif;
 }
 
 /* Buttons */
@@ -104,7 +106,11 @@ body {
   align-items: center;
   background: #111;
   border: 2px solid #ff0000;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 20px #ff0000 inset;
 }
 .button:hover {
   transform: scale(1.1);
@@ -143,3 +149,23 @@ body {
   cursor: pointer;
 }
 .user-info:hover { color: #ff0000; }
+
+/* Hiệu ứng click màn hình */
+.click-effect {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.click-effect span {
+  position: absolute;
+  border: 2px solid #ff0000;
+  border-radius: 50%;
+  animation: ripple 0.6s linear forwards;
+}
+@keyframes ripple {
+  from { width: 0; height: 0; opacity: 1; }
+  to { width: 200px; height: 200px; opacity: 0; }
+}
