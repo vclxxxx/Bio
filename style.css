@@ -78,15 +78,22 @@ body {
 .dob {
   font-size: 1.1em;
   color: #ffaaaa;
+  margin-bottom: 10px;
+}
+.school {
+  font-size: 0.95em;
+  color: #bbbbbb;
   margin-bottom: 20px;
+  font-family: 'Cinzel', serif;
 }
 
 /* Buttons */
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 .button {
   width: 70px;
@@ -102,6 +109,10 @@ body {
 .button:active {
   transform: scale(0.9);
   box-shadow: 0 0 20px #ff0000 inset;
+}
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #ff3333;
 }
 .app-icon {
   width: 40px;
@@ -119,14 +130,6 @@ body {
   padding: 8px 15px;
   border-radius: 10px;
 }
-
-/* Info */
-.user-info {
-  font-size: 1em;
-  color: #ccc;
-  margin-top: 10px;
-}
-.user-info:hover { color: #ff0000; }
 
 /* Click effect */
 .click-effect {
