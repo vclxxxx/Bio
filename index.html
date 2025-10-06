@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drip Bio - Hoàng Hữu Việt</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Bio - Hoàng Hữu Việt</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="drip-bg"></div>
-    <div class="container">
-        <!-- Avatar -->
-        <img src="https://graph.facebook.com/hoanghuuviet/picture?type=large" 
-             alt="Avatar" class="avatar" 
-             onerror="this.src='https://via.placeholder.com/150?text=Avatar';">
-        <h1 class="name drip-text">Hoàng Hữu Việt</h1>
+  <div class="container">
+    
+    <!-- Mục avatar riêng -->
+    <div class="avatar-box">
+      <img src="https://graph.facebook.com/hoanghuuviet/picture?type=large" 
+           alt="Avatar" class="avatar"
+           onerror="this.src='https://via.placeholder.com/150?text=Avatar';">
+    </div>
+    
+    <!-- Tên -->
+    <h1 class="name drip-text">Hoàng Hữu Việt</h1>
 
-        <!-- Nút liên kết -->
-        <div class="buttons">
-            <a href="https://t.me/phaichiuh" target="_blank" class="button telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://zalo.me/0858344123" target="_blank" class="button zalo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" class="zalo-icon">
-            </a>
-            <a href="https://www.facebook.com/share/14KkPvLD94a/" target="_blank" class="button facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-
-        <!-- Nút nhạc -->
-        <button id="musicToggle" class="music-button"><i class="fas fa-volume-up"></i></button>
-
-        <!-- Info -->
-        <div id="userInfo" class="user-info"></div>
+    <!-- Nút liên kết -->
+    <div class="buttons">
+      <a href="https://t.me/phaichiuh" target="_blank" class="button telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="https://zalo.me/0858344123" target="_blank" class="button zalo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" class="zalo-icon">
+      </a>
+      <a href="https://www.facebook.com/share/14KkPvLD94a/" target="_blank" class="button facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
 
-    <!-- Nhạc nền -->
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="sound.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Nút nhạc -->
+    <button id="musicToggle" class="music-button"><i class="fas fa-volume-up"></i></button>
 
-    <script src="script.js"></script>
+    <!-- Info -->
+    <div id="userInfo" class="user-info"></div>
+  </div>
+
+  <!-- Nhạc nền -->
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="sound.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ nhạc.
+  </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>

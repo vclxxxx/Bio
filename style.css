@@ -1,162 +1,124 @@
-/* Nền drip gradient */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #120136, #52057b, #892cdc, #bc6ff1);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #120136, #52057b, #892cdc, #bc6ff1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite; /* đổi chậm để đỡ lag */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
 }
 
-/* Hiệu ứng chuyển màu nền */
 @keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
-/* Container */
 .container {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 0 25px rgba(255,255,255,0.2);
-    max-width: 420px;
-    width: 100%;
-    position: relative;
-    z-index: 2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+  max-width: 420px;
+  width: 100%;
 }
 
-/* Avatar */
+/* Avatar riêng */
+.avatar-box {
+  margin-bottom: 15px;
+}
 .avatar {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 0 25px rgba(255,255,255,0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+  transition: transform 0.3s ease;
 }
-
 .avatar:hover {
-    transform: scale(1.15) rotate(8deg);
-    box-shadow: 0 0 40px rgba(255,255,255,0.9);
+  transform: scale(1.1);
 }
 
-/* Tên Drip Text */
+/* Drip text */
 .name {
-    font-size: 2.2em;
-    margin: 0 0 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #00fff7, #ff00c8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: dripGlow 2s infinite alternate;
+  font-size: 2.2em;
+  margin: 0 0 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00fff7, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+.name::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 8px;
+  height: 15px;
+  background: #ff00c8;
+  border-radius: 50%;
+  animation: drip 2s infinite ease-in-out;
+}
+@keyframes drip {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(10px); opacity: 0.6;}
+  100% {transform: translateY(0); opacity: 1;}
 }
 
-@keyframes dripGlow {
-    from { text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7; }
-    to { text-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8; }
-}
-
-/* Nút liên kết */
+/* Buttons */
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
 }
-
 .button {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 2em;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .button:hover {
-    transform: scale(1.25) rotate(360deg);
-    animation: vibing 0.6s infinite;
-    box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #fff, 0 0 30px #0ff;
 }
+.telegram { background: #0088cc; }
+.zalo { background: #0068ff; }
+.facebook { background: #1877f2; }
 
-/* Icon riêng */
-.telegram { background-color: #0088cc; }
-.zalo { background-color: #0068ff; }
-.facebook { background-color: #1877f2; }
-
-/* Zalo logo */
 .zalo-icon {
-    width: 35px;
-    height: 35px;
-    filter: drop-shadow(0 0 5px white);
+  width: 35px;
+  height: 35px;
+  filter: drop-shadow(0 0 5px white);
 }
 
-/* Hiệu ứng rung drip */
-@keyframes vibing {
-    0% { transform: scale(1.2) rotate(0deg);}
-    25% { transform: scale(1.2) rotate(5deg);}
-    50% { transform: scale(1.2) rotate(-5deg);}
-    75% { transform: scale(1.2) rotate(5deg);}
-    100% { transform: scale(1.2) rotate(0deg);}
-}
-
-/* Nút nhạc */
+/* Music btn */
 .music-button {
-    background: none;
-    border: none;
-    font-size: 1.8em;
-    cursor: pointer;
-    margin-bottom: 15px;
-    color: #fff;
-    transition: color 0.3s ease, transform 0.3s ease;
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  color: #fff;
+  cursor: pointer;
 }
-.music-button:hover {
-    color: #ff00c8;
-    transform: scale(1.2);
-}
+.music-button:hover { color: #ff00c8; }
 
-/* Thông tin IP */
+/* Info */
 .user-info {
-    font-size: 1em;
-    color: #eee;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 0.95em;
+  color: #ddd;
+  cursor: pointer;
 }
-.user-info:hover {
-    color: #00fff7;
-    transform: scale(1.1);
-}
-
-/* Animation hạt drip */
-.drip-bg::before, .drip-bg::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
-    background-size: 60px 60px;
-    animation: moveStars 30s linear infinite;
-}
-@keyframes moveStars {
-    from { transform: translate(0,0); }
-    to { transform: translate(60px,60px); }
-}
+.user-info:hover { color: #00fff7; }
