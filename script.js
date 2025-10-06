@@ -1,12 +1,10 @@
 const music = document.getElementById('backgroundMusic');
 const toggleButton = document.getElementById('musicToggle');
 
-// Khi DOM load xong
+// Auto-play trick
 document.addEventListener("DOMContentLoaded", () => {
-  // Trick để tự bật nhạc
   music.muted = true;
   music.play().then(() => {
-    // Sau khi play thành công, bỏ mute để có tiếng
     setTimeout(() => {
       music.muted = false;
     }, 500);
@@ -15,18 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Toggle
+// Toggle mafia effect
 toggleButton.addEventListener('click', () => {
   if (music.paused) {
     music.play();
     toggleButton.textContent = '🔊';
+    toggleButton.style.boxShadow = "0 0 20px #ff0000";
   } else {
     music.pause();
     toggleButton.textContent = '🔇';
+    toggleButton.style.boxShadow = "none";
   }
 });
 
-// Nếu user click bất kỳ trên trang thì bật nhạc
+// Click bất kỳ -> bật nhạc nếu bị chặn
 document.body.addEventListener("click", () => {
   if (music.paused) {
     music.play();

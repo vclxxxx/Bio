@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', monospace;
+  font-family: 'Cinzel', serif;
   background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
   background-size: 400% 400%;
   animation: mafiaBG 18s ease infinite;
@@ -20,13 +20,14 @@ body {
 
 .container {
   text-align: center;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 25px rgba(255,0,0,0.3);
   max-width: 420px;
   width: 100%;
   border: 2px solid #ff0000;
+  position: relative;
 }
 
 /* Avatar */
@@ -43,36 +44,48 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .avatar:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 0 35px rgba(255,0,0,1);
 }
 
-/* Mafia Drip Text */
+/* Mafia text */
 .name {
-  font-size: 2.5em;
+  font-size: 2.6em;
   margin: 0 0 20px;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'UnifrakturCook', cursive;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #990000;
   position: relative;
   display: inline-block;
 }
-.name::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
+
+/* Giọt máu */
+.blood-drip {
   width: 8px;
-  height: 15px;
+  height: 25px;
   background: #ff0000;
   border-radius: 50%;
-  animation: drip 1.8s infinite ease-in-out;
+  margin: 0 auto;
+  animation: drip 2s infinite;
 }
+.blood-drip::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #ff0000;
+  border-radius: 50%;
+  margin: -5px auto 0;
+}
+.delay1 { animation-delay: 0.5s; }
+.delay2 { animation-delay: 1s; }
+
 @keyframes drip {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(12px); opacity: 0.5;}
-  100% {transform: translateY(0); opacity: 1;}
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(15px); opacity: 0.6; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Buttons */
@@ -89,12 +102,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #111;
   border: 2px solid #ff0000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .button:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 0 20px #ff0000, 0 0 40px #ff3333;
 }
 .app-icon {
@@ -111,15 +124,15 @@ body {
   font-size: 1.6em;
   color: #ff0000;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 .music-button:hover {
   color: #fff;
   background: #ff0000;
   box-shadow: 0 0 20px #ff0000;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Info */
