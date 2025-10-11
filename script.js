@@ -2,15 +2,36 @@ const music = document.getElementById('backgroundMusic');
 const toggleButton = document.getElementById('musicToggle');
 const viewCountEl = document.getElementById('viewCount');
 
-// --- Đếm lượt xem ---
+// --- Tự động phát nhạc khi vào web ---
 document.addEventListener('DOMContentLoaded', () => {
+  try {
+    music.volume = 0.4;
+    music.muted = true;
+    music.play().then(() => {
+      setTimeout(() => { music.muted = false; }, 500);
+    }).catch(() => {});
+  } catch(e){}
+
+  // Đếm lượt xem (local)
   let count = localStorage.getItem('bio_view_count') || 0;
   count = Number(count) + 1;
   localStorage.setItem('bio_view_count', count);
   viewCountEl.textContent = count;
+
+  // Hiệu ứng gõ chữ (typing)
+  const text = "Class 9B - Trường Trung học cơ sở Đồng Ý";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typingText").textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+  typeEffect();
 });
 
-// --- Nút nhạc ---
+// --- Nút bật/tắt nhạc ---
 toggleButton.addEventListener('click', () => {
   if (music.paused) {
     music.play();
@@ -34,32 +55,7 @@ document.body.addEventListener('click', (ev) => {
   setTimeout(() => span.remove(), 1000);
 });
 
-// --- Bấm phím M bật/tắt nhạc ---
+// --- Bấm phím M để bật/tắt nhạc ---
 window.addEventListener('keydown', (e) => {
   if (e.key.toLowerCase() === 'm') toggleButton.click();
-});
-
-// --- Hiệu ứng Itachi xuất hiện ---
-window.addEventListener('DOMContentLoaded', () => {
-  const avatar = document.querySelector('.itachi-avatar');
-  const overlay = document.querySelector('.dark-overlay');
-  const crows = document.querySelectorAll('.crow');
-  const sound = document.getElementById('crowSound');
-
-  setTimeout(() => {
-    overlay.style.opacity = '1';
-    sound.volume = 0.7;
-    sound.play().catch(()=>{});
-  }, 500);
-
-  // Quạ bay ra
-  setTimeout(() => {
-    crows.forEach(c => c.style.opacity = '1');
-  }, 1000);
-
-  // Avatar hiện dần
-  setTimeout(() => {
-    avatar.style.opacity = '1';
-    overlay.style.opacity = '0';
-  }, 2800);
 });
