@@ -1,55 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>23h Đồng Ý - Hoàng Hữu Việt</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hoàng Hữu Việt — Bio</title>
+  <meta name="description" content="Hoàng Hữu Việt — Class 9B. Liên hệ nhanh qua Telegram / Zalo / Facebook / TikTok.">
+  <meta property="og:title" content="Hoàng Hữu Việt — Bio">
+  <meta property="og:description" content="Class 9B - Trường Trung học cơ sở Đồng Ý">
+  <meta property="og:image" content="/avatar/me.jpg">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="click-effect"></div>
+  <div class="click-effect" aria-hidden="true"></div>
 
   <div class="container">
     <div class="content">
-      <!-- Avatar -->
       <div class="avatar-box">
         <div class="mist"></div>
-        <img src="avatar/me.jpg" alt="Avatar" class="avatar">
+        <img src="/avatar/me.jpg" alt="Avatar" class="avatar" id="avatarImg">
       </div>
 
-      <!-- Tên -->
-      <h1 class="name mafia-text">Hoàng Hữu Việt</h1>
+      <h1 class="name">Hoàng Hữu Việt</h1>
       <p class="dob">22 / 2 / 2011</p>
       <p class="school">Class 9B - Trường Trung học cơ sở Đồng Ý</p>
 
-      <!-- Nút liên kết -->
-      <div class="buttons">
-        <a href="https://t.me/phaichiuh" target="_blank" class="button telegram">
-          <img src="icon/telegram.png" alt="Telegram" class="app-icon">
+      <div class="buttons" id="socialButtons">
+        <a href="https://t.me/phaichiuh" target="_blank" class="button telegram" rel="noopener noreferrer">
+          <img src="/icon/telegram.png" alt="Telegram" class="app-icon">
         </a>
-        <a href="https://zalo.me/0858344123" target="_blank" class="button zalo">
-          <img src="icon/zalo.png" alt="Zalo" class="app-icon">
+        <a href="https://zalo.me/0858344123" target="_blank" class="button zalo" rel="noopener noreferrer">
+          <img src="/icon/zalo.png" alt="Zalo" class="app-icon">
         </a>
-        <a href="https://www.facebook.com/share/14KkPvLD94a/" target="_blank" class="button facebook">
-          <img src="icon/facebook.png" alt="Facebook" class="app-icon">
+        <a href="https://www.facebook.com/share/14KkPvLD94a/" target="_blank" class="button facebook" rel="noopener noreferrer">
+          <img src="/icon/facebook.png" alt="Facebook" class="app-icon">
         </a>
-        <a href="https://www.tiktok.com/@vailonvclxx?_t=ZS-90KLNQ2rkWa&_r=1" target="_blank" class="button tiktok">
-          <img src="icon/tiktok.png" alt="TikTok" class="app-icon">
+        <a href="https://www.tiktok.com/@vailonvclxx" target="_blank" class="button tiktok" rel="noopener noreferrer">
+          <img src="/icon/tiktok.png" alt="TikTok" class="app-icon">
         </a>
       </div>
 
-      <!-- Nút nhạc -->
-      <button id="musicToggle" class="music-button">🔊</button>
+      <div class="controls">
+        <button id="musicToggle" class="music-button">🔊</button>
+        <div id="viewStats" class="view-stats">👁️ <span id="viewCount">0</span> lượt</div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Nhạc nền -->
-  <audio id="backgroundMusic" autoplay loop muted>
-    <source src="sound.mp3" type="audio/mpeg">
-    Trình duyệt không hỗ trợ nhạc.
+  <audio id="backgroundMusic" loop>
+    <source src="/sound.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="script.js"></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
