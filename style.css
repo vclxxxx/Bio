@@ -1,10 +1,10 @@
 body {
   margin: 0;
   font-family: 'Cinzel', serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background: radial-gradient(circle at center, #000, #1a1a1a 70%);
   color: #fff;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .container {
@@ -21,26 +21,83 @@ body {
   gap: 10px;
 }
 
-.avatar-box {
+/* --- Itachi xuất hiện --- */
+.itachi-scene {
   position: relative;
-  width: 160px;
-  height: 160px;
-  margin-bottom: 10px;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background: black;
+  box-shadow: 0 0 40px rgba(255,0,0,0.3);
 }
 
-.avatar {
+.itachi-avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 3px solid #ff0000;
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
-  object-fit: cover;
-  z-index: 2;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
 
+.dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0.8), black);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.crows img {
+  position: absolute;
+  width: 60px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fly1 {
+  0% { opacity: 0; transform: translate(0,0) scale(0.8); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(200px,-150px) scale(1.3) rotate(45deg); }
+}
+@keyframes fly2 {
+  0% { opacity: 0; transform: translate(0,0) scale(0.8); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-200px,-150px) scale(1.2) rotate(-50deg); }
+}
+@keyframes fly3 {
+  0% { opacity: 0; transform: translate(0,0) scale(0.8); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(100px,-180px) scale(1.1) rotate(30deg); }
+}
+
+.crow1 { top: 60px; left: 50%; animation: fly1 2s ease forwards; }
+.crow2 { top: 90px; left: 40%; animation: fly2 2.2s ease forwards 0.2s; }
+.crow3 { top: 70px; left: 55%; animation: fly3 2.3s ease forwards 0.4s; }
+
+.sharingan {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 65px;
+  left: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 8px rgba(255,0,0,0.7);
+  background: radial-gradient(circle at center, rgba(255,0,0,0.9), transparent 70%);
+  opacity: 0;
+  animation: sharinganGlow 3s ease forwards 2.5s;
+}
+
+@keyframes sharinganGlow {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- UI khác --- */
 .name {
   font-size: 1.8rem;
-  margin-top: 0;
+  margin-top: 12px;
 }
 
 .school {
@@ -108,9 +165,4 @@ body {
 @keyframes fly {
   0% { opacity: 1; transform: translateY(0) scale(1); }
   100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
-}
-
-@media (max-width: 600px) {
-  .avatar-box { width: 130px; height: 130px; }
-  .button img { width: 45px; height: 45px; }
 }
